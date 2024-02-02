@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Express on Vercel test");
+  res.send("Express on Vercel TEST");
 });
 
 // add movies endpoint
