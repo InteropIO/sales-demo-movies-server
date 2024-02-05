@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 const fs = require('fs');
 
-const movies = JSON.parse(fs.readFileSync('./data/movies.json'));
+const movies = JSON.parse(fs.readFileSync(process.cwd() + '/data/movies.json', 'utf8'));
+// fs.readFile(process.cwd() + '/app/data.json', 'utf8')
 
 app.get("/", (req, res) => {
   res.send("Express on Vercel TEST");
