@@ -1,12 +1,6 @@
 const express = require("express");
 const app = express();
-let movies;
-
-const fetchData = async () => {
-  movies = await (await fetch("./data/movies.json")).json();
-}
-
-fetchData();
+let movies = '/data/movies.json';
 
 app.get("/", (req, res) => {
   res.send("Express on Vercel TEST");
@@ -18,7 +12,7 @@ app.get("/movies", (req, res) => {
   res.send(movies);
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
