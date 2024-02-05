@@ -1,16 +1,19 @@
 const express = require("express");
 const app = express();
+var cors = require('cors')
 const fs = require('fs');
 
 const movies = JSON.parse(fs.readFileSync(process.cwd() + '/data/movies.json', 'utf8'));
-// fs.readFile(process.cwd() + '/app/data.json', 'utf8')
+
+// // enable CORS globally
+// app.use(cors())
 
 app.get("/", (req, res) => {
   res.send("Express on Vercel TEST");
 });
 
-// add movies endpoint
-app.get("/movies", (req, res) => {
+// add movies endpoint + enable CORS for a single route
+app.get("/movies", cors(), (req, res) => {
   res.send(movies);
 });
 
