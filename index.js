@@ -14,6 +14,7 @@ app.get("/", (req, res) => {
 
 // add movies endpoint
 app.get("/movies", (req, res) => {
+  console.log('🚀 ~ app.get ~ movies:', movies)
   res.send(movies);
 });
 
