@@ -1,11 +1,21 @@
 const express = require("express");
 const app = express();
+let movies;
+
+const fetchData = async () => {
+  movies = await (await fetch("./data/movies.json")).json();
+}
+
+fetchData();
 
 app.get("/", (req, res) => {
   res.send("Express on Vercel TEST");
 });
 
 // add movies endpoint
+app.get("/movies", (req, res) => {
+  res.send(movies);
+});
 
 const PORT = process.env.PORT || 5000;
 
