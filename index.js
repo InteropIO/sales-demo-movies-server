@@ -4,14 +4,12 @@ const fs = require('fs');
 
 const movies = JSON.parse(fs.readFileSync('./data/movies.json'));
 
-
 app.get("/", (req, res) => {
   res.send("Express on Vercel TEST");
 });
 
 // add movies endpoint
 app.get("/movies", (req, res) => {
-  console.log('🚀 ~ app.get ~ movies:', movies)
   res.send(movies);
 });
 
